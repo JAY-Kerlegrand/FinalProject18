@@ -1,6 +1,7 @@
 
 #Here's a small intro for the game, haha
 import time
+import random
 intro = ["Magnet High School is a prestigious STEM school focused on the discipline of engineering.\n",
 "Hundreds of students compete vigorously in the selective admission process to be enrolled in the school and further their education in hopes of becoming productive members of society in their near futures.\n",
 "Except...\n",
@@ -23,6 +24,21 @@ class Magneteer:
         self.work = work
         self.happiness = happiness
 
+    def work(self):
+        global WORK
+        global ENERGY
+        global HAPPINESS
+        print("You do some work.\n")
+        WORK += self.work
+        ENERGY -= 3
+        HAPPINESS -= 1
+
+    def eat(self):
+        global ENERGY
+        eating = ["Mother made some porridge, how nice.", "Crackers and cheese replenish your soul.", "Let's take a break for some grapes.", "You eat a cinnamon bun. It's sweet, just like you <3.", "Mmmm, sesame candy...", "You...drink some water? That's it? Ok..."]
+        print(random.choice(eating))
+        ENERGY += 2
+
 characters = {
     "owl": Magneteer("Night Owl", 70, 4, 50),
     "genius": Magneteer("MIT Genius", 50, 7, 40),
@@ -41,6 +57,14 @@ time.sleep(3)
 char = input("So, how do you work? (owl)(genius)(studious)\n")
 
 print(f"Nice! So you're the {characters[char].name} type, huh?")
+
+WORK = 0
+ENERGY = 100
+HAPPINESS = 100
+
+characters[char].eat()
+
+print(ENERGY)
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
