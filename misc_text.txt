@@ -1,0 +1,49 @@
+Intro:
+Magnet High School is a prestigious STEM school focused on the discipline of engineering.
+Hundreds of students compete vigorously in the selective admission process to be enrolled in the school and further their education in hopes of becoming productive members of society in their near futures.
+Except….
+Once in the school, some of these once restful, dutiful students...if ever dutiful at all...become stress-induced, procrastinating balls of sadness.
+Congrats! You are one of these pitiful students, and you are trying to skirt by yet another week of homework.
+Try to get your work done while also maintaining your energy and happiness!
+
+Directions:
+Everyday after school, you've got homework to do! Press (w) to WORK and get sh*t done!
+But you've got your HEALTH and HAPPINESS to watch out for! Each time you work, your points for HEALTH and HAPPINESS go down. Replenish them by pressing (s) to sleep, (e) to eat, (p) to procrastinate, and (c) to... cry...
+Stragetize! You've only got __ clicks to get it done, so use 'em wisely!
+Let's start the week!
+
+
+Monday starting line:
+It's Monday evening and you've just come home from a sluggish day at school. Damn, the weekend is over, RATS. Time to get to work!
+
+Tuesday starting line:
+It's Tuesday evening and you've just come home from a grumpy day at school. What a huge oof. Time to get to work!
+
+Wednesday starting line:
+It's Wednesday evening and you've just come home from a harsh day at school. When will it be o v e r? Time to get to work!
+
+Thursday starting line:
+It's Thursday evening and you've just come home from a jittery day at school. UGH. Time to get to work!
+
+Friday starting line:
+It's Friday evening and you've just come home from a slightly better day at school. Can't wait for the weekend! Time to get to work!
+
+
+WIN line: Homework COMPLETE! Now for a few measly hours of sleep...
+LOSE lines:
+    work not done: Homework UNCOMPLETE! I guess you'll have to settle with a 67...
+    energy depleted: I- I think you passed out from exhaustion, dude. Enjoy the surprise nap...?
+    happiness depleted: You broke down in tears from the mounting stress on your shoulders...I think you need a break...
+
+
+
+
+
+
+
+
+
+
+WORKS CITED
+https://www.geeksforgeeks.org/sleep-in-python/
+https://stackoverflow.com/questions/8924173/how-do-i-print-bold-text-in-python
