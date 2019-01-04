@@ -44,7 +44,6 @@ print(f"(3)The Studious Student has less energy, but doesn't procrastinate as mu
 #do the same for happiness and energy (however, whether or not the player wins the night is not determined by these, they can only add a penalty for the next night)
 #make a loop to play a "night" five times, for each day of the week
 #...still don't know how to determine overall win/lose, perhaps total_points=0, and at the end of every night your performance gives you a # of points; at the end of the game, points added up and result in a "grade" (ex. A for excellent, F for fail)
-
 #OOF
 
 
