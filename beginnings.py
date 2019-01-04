@@ -12,24 +12,35 @@ intro = ["Magnet High School is a prestigious STEM school focused on the discipl
 for line in intro:
     print(line, end="")
     time.sleep(3)
-
+print("-----------------")
 
 #each character has different stats of base energy, work done per click, and base happiness; the base for all these traits, respectively, is 50, 5, 50
 class Magneteer:
 
-    def __init__(self, energy, work, happiness):
+    def __init__(self, name, energy, work, happiness):
+        self.name = name
         self.energy = energy
         self.work = work
         self.happiness = happiness
 
-owl = Magneteer(70, 4, 50)
-genius = Magneteer(50, 7, 40)
-studious = Magneteer(40, 5, 70)
-
+characters = {
+    "owl": Magneteer("Night Owl", 70, 4, 50),
+    "genius": Magneteer("MIT Genius", 50, 7, 40),
+    "studious": Magneteer("Studious Student", 40, 5, 70)
+}
 print("What type of Magneteer are you? \n")
-print(f"(1)The Night Owl can stay up to do more work, but they work more slowly. They start off with {owl.energy} energy and {owl.happiness} happiness, and get {owl.work} work done per click.")
-print(f"(2)The MIT Genius can work quickly, but they tend to procratinate more. They start off with {genius.energy} energy and {genius.happiness} happiness, and get {genius.work} work done per click.")
-print(f"(3)The Studious Student has less energy, but doesn't procrastinate as much. They start off with {studious.energy} energy and {studious.happiness} happiness, and get {studious.work} work done per click.")
+time.sleep(3)
+#I have used Unicode to bold certain words
+print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
+time.sleep(3)
+print(f"★★ The \033[1m MIT Genius \033[0m can work quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
+time.sleep(3)
+print(f"★★ The \033[1m Studious Student \033[0m has less energy, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
+time.sleep(3)
+
+char = input("So, how do you work? (owl)(genius)(studious)\n")
+
+print(f"Nice! So you're the {characters[char].name} type, huh?")
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
