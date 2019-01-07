@@ -47,3 +47,4 @@ LOSE lines:
 WORKS CITED
 https://www.geeksforgeeks.org/sleep-in-python/
 https://stackoverflow.com/questions/8924173/how-do-i-print-bold-text-in-python
+https://www.hostingadvice.com/how-to/move-copy-delete-files-linux/
