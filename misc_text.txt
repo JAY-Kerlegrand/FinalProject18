@@ -9,6 +9,7 @@ Try to get your work done while also maintaining your energy and happiness!
 Directions:
 Everyday after school, you've got homework to do! Press (w) to WORK and get sh*t done!
 But you've got your HEALTH and HAPPINESS to watch out for! Each time you work, your points for HEALTH and HAPPINESS go down. Replenish them by pressing (s) to sleep, (e) to eat, (p) to procrastinate, and (c) to... cry...
+But be careful, napping and crying may have some consequences...
 Stragetize! You've only got __ clicks to get it done, so use 'em wisely!
 Let's start the week!
 

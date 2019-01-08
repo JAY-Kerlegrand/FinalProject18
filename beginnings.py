@@ -10,10 +10,10 @@ intro = ["Magnet High School is a prestigious STEM school focused on the discipl
 "become stress-induced, procrastinating balls of sadness.\n",
 "Congrats! You are one of these pitiful students, and you are trying to skirt by yet another week of homework.\n",
 "Try to get your work done while also maintaining your energy and happiness!\n\n"]
-for line in intro:
-    print(line, end="")
-    time.sleep(3)
-print("-----------------")
+#for line in intro:
+    #print(line, end="")
+    #time.sleep(3)
+#print("-----------------")
 
 #each character has different stats of base energy, work done per click, and base happiness; the base for all these traits, respectively, is 50, 5, 50
 class Magneteer:
@@ -23,6 +23,19 @@ class Magneteer:
         self.energy = energy
         self.work = work
         self.happiness = happiness
+
+    def stats(self):
+        global WORK
+        global ENERGY
+        global HAPPINESS
+        global NUM_CLICKS
+        print(f"""
+        You have:
+        {WORK} work done out of 50
+        {ENERGY} energy left
+        {HAPPINESS} happiness
+        {NUM_CLICKS} clicks left\n""")
+        #if work/happiness/num_clicks low, give a warning
 
     def work(self):
         global WORK
@@ -36,14 +49,22 @@ class Magneteer:
     def eat(self):
         global ENERGY
         eating = ["Mother made some porridge, how nice.", "Crackers and cheese replenish your soul.", "Let's take a break for some grapes.", "You eat a cinnamon bun. It's sweet, just like you <3.", "Mmmm, sesame candy...", "You...drink some water? That's it? Ok..."]
+        print("You eat something.", end=" ")
         print(random.choice(eating))
         ENERGY += 2
+
+    def sleep(self):
+        global NUM_CLICKS
+        global ENERGY
+        print("You catch a few winks. But at what cost? You lost some clicks to do your work!")
+        ENERGY += 4
+        NUM_CLICKS -= random.randint(3,6)
 
 characters = {
     "owl": Magneteer("Night Owl", 70, 4, 50),
     "genius": Magneteer("MIT Genius", 50, 7, 40),
-    "studious": Magneteer("Studious Student", 40, 5, 70)
-}
+    "studious": Magneteer("Studious Student", 40, 5, 70)}
+
 print("What type of Magneteer are you? \n")
 time.sleep(3)
 #I have used Unicode to bold certain words
@@ -56,15 +77,16 @@ time.sleep(3)
 
 char = input("So, how do you work? (owl)(genius)(studious)\n")
 
-print(f"Nice! So you're the {characters[char].name} type, huh?")
+print(f"\nNice! So you're the {characters[char].name} type, huh?\n")
 
+NUM_CLICKS = 50
 WORK = 0
 ENERGY = characters[char].energy
 HAPPINESS = characters[char].happiness
 
-characters[char].eat()
-
-print(f"You have {ENERGY} ENERGY.")
+#characters[char].eat()
+characters[char].sleep()
+print(NUM_CLICKS)
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
