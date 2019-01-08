@@ -59,12 +59,12 @@ char = input("So, how do you work? (owl)(genius)(studious)\n")
 print(f"Nice! So you're the {characters[char].name} type, huh?")
 
 WORK = 0
-ENERGY = 100
-HAPPINESS = 100
+ENERGY = characters[char].energy
+HAPPINESS = characters[char].happiness
 
 characters[char].eat()
 
-print(ENERGY)
+print(f"You have {ENERGY} ENERGY.")
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
