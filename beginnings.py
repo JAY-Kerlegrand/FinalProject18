@@ -60,6 +60,11 @@ class Magneteer:
         ENERGY += 4
         NUM_CLICKS -= random.randint(3,6)
 
+    def procrastinate(self):
+        global ENERGY
+        global HAPPINESS
+        pro = ["You take a break to browse Twitter. You laugh at another stupid Trump tweet.", "You doodle on the edge of your pa- wait, no, you just finished a full illustration...", "WAIT, IS THERE A NEW EPISODE-", ]
+
 characters = {
     "owl": Magneteer("Night Owl", 70, 4, 50),
     "genius": Magneteer("MIT Genius", 50, 7, 40),
@@ -84,9 +89,7 @@ WORK = 0
 ENERGY = characters[char].energy
 HAPPINESS = characters[char].happiness
 
-#characters[char].eat()
-characters[char].sleep()
-print(NUM_CLICKS)
+
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
