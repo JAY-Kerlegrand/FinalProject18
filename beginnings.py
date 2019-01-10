@@ -77,20 +77,34 @@ class Magneteer:
         HAPPINESS += 1
         NUM_CLICKS -= 1
 
+    def cry(self):
+        """The cry function has a 50/50 chance of either increasing or decreasing your HAPPINESS"""
+        global HAPPINESS
+        global NUM_CLICKS
+        p = [1, 2]
+        pp = random.choice(p)
+        if pp == 1:
+            print("You get a bit overwhelmed and some tears come a-flowing. But that's understandable, it can get stressful sometimes. You feel a bit better afterward.\n")
+            HAPPINESS += 3
+        else:
+            print("A simple problem and a brain fart manage to hurl you into a fury of tears. You feel worse now. Oh no.\n")
+            HAPPINESS -= 3
+        NUM_CLICKS -= 1
+
 characters = {
     "owl": Magneteer("Night Owl", 70, 4, 50),
     "genius": Magneteer("MIT Genius", 50, 7, 40),
     "studious": Magneteer("Studious Student", 40, 5, 70)}
 
 #print("What type of Magneteer are you? \n")
-time.sleep(3)
+#time.sleep(3)
 #I have used Unicode to bold certain words
-print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
-time.sleep(3)
-print(f"★★ The \033[1m MIT Genius \033[0m can work quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
-time.sleep(3)
-print(f"★★ The \033[1m Studious Student \033[0m has less energy, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
-time.sleep(3)
+#print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
+#time.sleep(3)
+#print(f"★★ The \033[1m MIT Genius \033[0m can work quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
+#time.sleep(3)
+#print(f"★★ The \033[1m Studious Student \033[0m has less energy, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
+#time.sleep(3)
 
 char = input("So, how do you work? (owl)(genius)(studious)\n")
 
@@ -102,7 +116,7 @@ ENERGY = characters[char].energy
 HAPPINESS = characters[char].happiness
 
 for x in range(10):
-    characters[char].procrastinate()
+    characters[char].cry()
     characters[char].stats()
 
 #THE GAME PLAN FROM HERE
