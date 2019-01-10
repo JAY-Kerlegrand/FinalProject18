@@ -29,29 +29,35 @@ class Magneteer:
         global ENERGY
         global HAPPINESS
         global NUM_CLICKS
+        #note: Unicode used to bold the numbers
         print(f"""
         You have:
-        {WORK} work done out of 50
-        {ENERGY} energy left
-        {HAPPINESS} happiness
-        {NUM_CLICKS} clicks left\n""")
+        \033[1m{WORK}\033[0m  work done out of 50
+        \033[1m{ENERGY}\033[0m energy left
+        \033[1m{HAPPINESS}\033[0m happiness
+        \033[1m{NUM_CLICKS}\033[0m clicks left""")
+        print("\n")
         #if work/happiness/num_clicks low, give a warning
 
     def work(self):
         global WORK
         global ENERGY
         global HAPPINESS
+        global NUM_CLICKS
         print("You do some work.\n")
         WORK += self.work
         ENERGY -= 3
-        HAPPINESS -= 1
+        HAPPINESS -= 2
+        NUM_CLICKS -= 1
 
     def eat(self):
         global ENERGY
+        global NUM_CLICKS
         eating = ["Mother made some porridge, how nice.", "Crackers and cheese replenish your soul.", "Let's take a break for some grapes.", "You eat a cinnamon bun. It's sweet, just like you <3.", "Mmmm, sesame candy...", "You...drink some water? That's it? Ok..."]
         print("You eat something.", end=" ")
         print(random.choice(eating))
         ENERGY += 2
+        NUM_CLICKS -= 1
 
     def sleep(self):
         global NUM_CLICKS
@@ -63,14 +69,20 @@ class Magneteer:
     def procrastinate(self):
         global ENERGY
         global HAPPINESS
-        pro = ["You take a break to browse Twitter. You laugh at another stupid Trump tweet.", "You doodle on the edge of your pa- wait, no, you just finished a full illustration...", "WAIT, IS THERE A NEW EPISODE-", ]
+        global NUM_CLICKS
+        pro = ["You take a break to browse Twitter. You laugh at another stupid Trump tweet.", "You doodle on the edge of your pa- wait, no, you just finished a fully colored illustration...", "WAIT, IS THERE A NEW EPISODE OF *insert fave show*!!??-", "You literally just sit there and stare at your paper, trying to empty your mind of stress. It kinda works, but not really.", "You really just wanna play Smash Ultimate, so you do. Isabelle's sweet smile makes it all worth it."]
+        print("You procrastinate.", end=" ")
+        print(random.choice(pro))
+        ENERGY -= 2
+        HAPPINESS += 1
+        NUM_CLICKS -= 1
 
 characters = {
     "owl": Magneteer("Night Owl", 70, 4, 50),
     "genius": Magneteer("MIT Genius", 50, 7, 40),
     "studious": Magneteer("Studious Student", 40, 5, 70)}
 
-print("What type of Magneteer are you? \n")
+#print("What type of Magneteer are you? \n")
 time.sleep(3)
 #I have used Unicode to bold certain words
 print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
@@ -89,7 +101,9 @@ WORK = 0
 ENERGY = characters[char].energy
 HAPPINESS = characters[char].happiness
 
-
+for x in range(10):
+    characters[char].procrastinate()
+    characters[char].stats()
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
