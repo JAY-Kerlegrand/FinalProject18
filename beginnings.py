@@ -2,7 +2,6 @@
 #Here's a small intro for the game, haha
 import time
 import random
-import sys
 intro = ["Magnet High School is a prestigious STEM school focused on the discipline of engineering.\n",
 "Hundreds of students compete vigorously in the selective admission process to be enrolled in the school and further their education in hopes of becoming productive members of society in their near futures.\n",
 "Except...\n",
@@ -128,8 +127,7 @@ directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p
 
 while WORK < 150:
     if NUM_CLICKS == 0:
-        print("Fiddlesticks! You ran out of time(clicks) to do your work!")
-        sys.exit()
+        print("Fiddlesticks! You ran out of time(clicks) to do your work!\n\n...")
     action = input("What do you want to do?\n")
     if action == "w":
         characters[char].working()
