@@ -2,6 +2,7 @@
 #Here's a small intro for the game, haha
 import time
 import random
+import sys
 intro = ["Magnet High School is a prestigious STEM school focused on the discipline of engineering.\n",
 "Hundreds of students compete vigorously in the selective admission process to be enrolled in the school and further their education in hopes of becoming productive members of society in their near futures.\n",
 "Except...\n",
@@ -12,7 +13,7 @@ intro = ["Magnet High School is a prestigious STEM school focused on the discipl
 "Try to get your work done while also maintaining your energy and happiness!\n\n"]
 #for line in intro:
     #print(line, end="")
-    #time.sleep(3)
+    #time.sleep(2)
 #print("-----------------")
 
 #each character has different stats of base energy, work done per click, and base happiness; the base for all these traits, respectively, is 50, 5, 50
@@ -30,16 +31,18 @@ class Magneteer:
         global HAPPINESS
         global NUM_CLICKS
         #note: Unicode used to bold the numbers
+        if WORK > 150:
+            WORK = 150
         print(f"""
         You have:
-        \033[1m{WORK}\033[0m  work done out of 50
+        \033[1m{WORK}\033[0m  work done out of 150
         \033[1m{ENERGY}\033[0m energy left
         \033[1m{HAPPINESS}\033[0m happiness
         \033[1m{NUM_CLICKS}\033[0m clicks left""")
         print("\n")
         #if work/happiness/num_clicks low, give a warning
 
-    def work(self):
+    def working(self):
         global WORK
         global ENERGY
         global HAPPINESS
@@ -97,27 +100,52 @@ characters = {
     "studious": Magneteer("Studious Student", 40, 5, 70)}
 
 #print("What type of Magneteer are you? \n")
-#time.sleep(3)
+#time.sleep(2)
 #I have used Unicode to bold certain words
-#print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
-#time.sleep(3)
-#print(f"★★ The \033[1m MIT Genius \033[0m can work quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
-#time.sleep(3)
-#print(f"★★ The \033[1m Studious Student \033[0m has less energy, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
-#time.sleep(3)
+print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
+#time.sleep(2)
+print(f"★★ The \033[1m MIT Genius \033[0m can work quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
+#time.sleep(2)
+print(f"★★ The \033[1m Studious Student \033[0m has less energy, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
+#time.sleep(2)
 
 char = input("So, how do you work? (owl)(genius)(studious)\n")
 
 print(f"\nNice! So you're the {characters[char].name} type, huh?\n")
+time.sleep(2)
 
 NUM_CLICKS = 50
 WORK = 0
 ENERGY = characters[char].energy
 HAPPINESS = characters[char].happiness
 
-for x in range(10):
-    characters[char].cry()
-    characters[char].stats()
+#These are quick directions
+directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got __ clicks to get it done, so use 'em wisely!"]
+#for line in directions:
+    #print(line)
+    #time.sleep(1)
+#print("\n")
+
+while WORK < 150:
+    if NUM_CLICKS == 0:
+        print("Fiddlesticks! You ran out of time(clicks) to do your work!")
+        sys.exit()
+    action = input("What do you want to do?\n")
+    if action == "w":
+        characters[char].working()
+        characters[char].stats()
+    elif action == "e":
+        characters[char].eat()
+        characters[char].stats()
+    elif action == "s":
+        characters[char].sleep()
+        characters[char].stats()
+    elif action == "p":
+        characters[char].procrastinate()
+        characters[char].stats()
+    elif action == "c":
+        characters[char].cry()
+        characters[char].stats()
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
