@@ -32,6 +32,12 @@ class Magneteer:
         #note: Unicode used to bold the numbers
         if WORK > 150:
             WORK = 150
+        if ENERGY < 0:
+            ENERGY = 0
+        if HAPPINESS < 0:
+            HAPPINESS = 0
+        if NUM_CLICKS < 0:
+            NUM_CLICKS = 0
         print(f"""
         You have:
         \033[1m{WORK}\033[0m  work done out of 150
@@ -66,7 +72,7 @@ class Magneteer:
         global ENERGY
         print("You catch a few winks. But at what cost? You lost some clicks to do your work!")
         ENERGY += 4
-        NUM_CLICKS -= random.randint(3,6)
+        NUM_CLICKS -= random.randint(3,5)
 
     def procrastinate(self):
         global ENERGY
@@ -126,8 +132,15 @@ directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p
 #print("\n")
 
 while WORK < 150:
-    if NUM_CLICKS == 0:
-        print("Fiddlesticks! You ran out of time(clicks) to do your work!\n\n...")
+    if NUM_CLICKS <= 0:
+        print("Fiddlesticks! You ran out of clicks to do your work!\n\n...")
+        break
+    if ENERGY <= 0:
+        print("Aw, rats, your energy... I- I think you passed out from exhaustion, dude.\n\n")
+        break
+    if HAPPINESS <=0:
+        print("You let your happiness deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
+        break
     action = input("What do you want to do?\n")
     if action == "w":
         characters[char].working()
@@ -158,7 +171,7 @@ while WORK < 150:
 #do the same for happiness and energy (however, whether or not the player wins the night is not determined by these, they can only add a penalty for the next night)
 #make a loop to play a "night" five times, for each day of the week
 #...still don't know how to determine overall win/lose, perhaps total_points=0, and at the end of every night your performance gives you a # of points; at the end of the game, points added up and result in a "grade" (ex. A for excellent, F for fail)
-#OOF
+#OOF IT BURNS
 
 
 
