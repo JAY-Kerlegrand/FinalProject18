@@ -100,9 +100,9 @@ class Magneteer:
         NUM_CLICKS -= 1
 
 characters = {
-    "owl": Magneteer("Night Owl", 70, 4, 50),
-    "genius": Magneteer("MIT Genius", 50, 7, 40),
-    "studious": Magneteer("Studious Student", 40, 5, 70)}
+    "owl": Magneteer("Night Owl", 70, 6, 50),
+    "genius": Magneteer("MIT Genius", 50, 8, 40),
+    "studious": Magneteer("Studious Student", 40, 7, 70)}
 
 #print("What type of Magneteer are you? \n")
 #time.sleep(2)
@@ -157,6 +157,21 @@ while WORK < 150:
     elif action == "c":
         characters[char].cry()
         characters[char].stats()
+
+if WORK == 150:
+    print("""
+╔═══╗             ╔╗   ╔╗   ╔╗
+║╔═╗║            ╔╝╚╗  ║║  ╔╝╚╗
+║║ ╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
+║║ ╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
+║╚═╝║╚╝║║║║╚╝║║║╔╗║╚╣╚╝║╚╣╔╗║╚╣║╚╝║║║╠══║
+╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
+          ╔═╝║
+          ╚══╝
+
+You finished all of your night's work, with your sanity still intact!
+    Well, mostly intact...
+    """)
 
 #THE GAME PLAN FROM HERE
 #player  input to choose a character
