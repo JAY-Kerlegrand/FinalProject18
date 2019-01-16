@@ -174,14 +174,6 @@ You finished all of your night's work, with your sanity still intact!
     """)
 
 #THE GAME PLAN FROM HERE
-#player  input to choose a character
-#set default values for ENERGY(100), WORK(0), and HAPPINESS(100)
-#within the Magneteer class, create functions to perform Work, Procrastinate, Nap, Eat, Cry
-#for ex. def work(): ENERGY -=2, WORK +=2, HAPPINESS -=1
-#for ex. def procrastinate(): ENERGY -=1, HAPPINESS +=2
-#for ex. def cry(): print("A simple calculus problem managed to hurl you into a fury of tears. You feel only slightly better."), HAPPINESS += 1 **PERHAPS MAKE THE CRY FUNCTION RANDOMLY AFFECT A VARIABLE (i.e might bring up/down energy, or up/down work)
-#for one night, create a function(outside of Magneteer class) that contains a loop of user inputs (loop lasts for 120 or so turns?)
-#when user types "w" perform Work function once, when user types "c" perform cry function once
 #at end of # of turns, if work points are at 100, player wins, if 100>p>80, player wins, but with penalty for next night, if less than 80, player loses
 #do the same for happiness and energy (however, whether or not the player wins the night is not determined by these, they can only add a penalty for the next night)
 #make a loop to play a "night" five times, for each day of the week
