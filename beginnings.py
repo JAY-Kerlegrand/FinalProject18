@@ -132,7 +132,12 @@ directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
 for day in days:
-    print(f"It's {day} night. Let's get to work!")
+    if day == 'Monday':
+        print("The weekend's just ended, darn... It's Monday night. Let's get to work!")
+    elif day == 'Friday':
+        print("It's the last night for this week, Friday! Let's get to work and make it count!")
+    else:
+        print(f"It's the next night, {day}. Let's get to work!")
 
     NUM_CLICKS = 50
     WORK = 0
@@ -141,7 +146,7 @@ for day in days:
 
     while WORK < 150:
         if NUM_CLICKS <= 0:
-            print("Fiddlesticks! You ran out of clicks to do your work!\n\n...")
+            print("Fiddlesticks! You ran out of clicks to do your work!\n")
             break
         if ENERGY <= 0:
             print("Aw, rats, your energy... I- I think you passed out from exhaustion, dude.\n\n")
@@ -168,29 +173,33 @@ for day in days:
 
     time.sleep(2)
     if WORK == 150:
-        print("""
-    ╔═══╗             ╔╗   ╔╗   ╔╗
-    ║╔═╗║            ╔╝╚╗  ║║  ╔╝╚╗
-    ║║ ╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
-    ║║ ╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
-    ║╚═╝║╚╝║║║║╚╝║║║╔╗║╚╣╚╝║╚╣╔╗║╚╣║╚╝║║║╠══║
-    ╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
-              ╔═╝║
-              ╚══╝
-
-    You finished all of your night's work, with your sanity still intact!
-        Well, mostly intact...
-        """)
+        print("Homework COMPLETED! You finished all of your night's work, with your sanity still intact! Well, mostly intact...\n")
         WINS += 1
+    else:
+        if day == 'Friday':
+            print("Homework INCOMPLETE! You've still got calc to do, but with the weekend ahead, you've got time......Sunday night it is!\n")
+        else:
+            print("Homework INCOMPLETE! There's still a worksheet to be done, but let's just hope tomorrow's co is enough time to get it done...\n")
+    time.sleep(3)
 
-print(f"You won {WINS} out of 1 games.")
+print(f"Well, {characters[char].name}, you've completed {WINS} day's work out of 5.", end=" ")
+if WINS == 0:
+    print("LMAO buddy, you ok? You got a whole-ass 0 on, like, EVERY assignment. Like, were you just playing Deltarune the entire week or something? How yo dumbass even got into Magnet??")
+elif WINS == 1:
+    print("You got a..54? Just didn't care, huh? Can't blame ya, I guess, who needs to know what an 'epithet' is, amirite? ...No, actually, I'm really disappointed in you; please try harder next time, sweety.")
+elif WINS == 2:
+    print("Welp, that's a 68 in your gradebook, lmao. Just wasn't your luck, huh? Eh, you've still got a week till the marking period ends. Hopefully there's some extra credit oppurtunities...")
+elif WINS == 3:
+    print("OOF, that there's a 75 perciento. Lo siento, but you've gotta do better than that! Maybe Señora will extended the due date, and you can cop some extra puntos.")
+elif WINS == 4:
+    print("Ok, ok, you got a 92. Not too shabby for bum-rushing that chem packet at one in the morning. Good job! (I mean the grade, not the procrastination)")
+elif WINS == 5:
+    print("Ayyyyyyyyyyyyyyyy, 98 FOR. THE. WIN!!! Haha, dab on 'em...*ahem* Congratulations on your grade, keep up the good work.")
 
-#THE GAME PLAN FROM HERE
+
 #at end of # of turns, if work points are at 100, player wins, if 100>p>80, player wins, but with penalty for next night, if less than 80, player loses
 #do the same for happiness and energy (however, whether or not the player wins the night is not determined by these, they can only add a penalty for the next night)
-#make a loop to play a "night" five times, for each day of the week
-#...still don't know how to determine overall win/lose, perhaps total_points=0, and at the end of every night your performance gives you a # of points; at the end of the game, points added up and result in a "grade" (ex. A for excellent, F for fail)
-#OOF IT BURNS
+
 
 
 
