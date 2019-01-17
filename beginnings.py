@@ -119,10 +119,8 @@ char = input("So, how do you work? (owl)(genius)(studious)\n")
 print(f"\nNice! So you're the {characters[char].name} type, huh?\n")
 time.sleep(2)
 
-NUM_CLICKS = 50
-WORK = 0
-ENERGY = characters[char].energy
-HAPPINESS = characters[char].happiness
+WINS = 0
+LOSSES = 0
 
 #These are quick directions
 directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got __ clicks to get it done, so use 'em wisely!"]
@@ -131,48 +129,61 @@ directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p
     #time.sleep(1)
 #print("\n")
 
-while WORK < 150:
-    if NUM_CLICKS <= 0:
-        print("Fiddlesticks! You ran out of clicks to do your work!\n\n...")
-        break
-    if ENERGY <= 0:
-        print("Aw, rats, your energy... I- I think you passed out from exhaustion, dude.\n\n")
-        break
-    if HAPPINESS <=0:
-        print("You let your happiness deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
-        break
-    action = input("What do you want to do?\n").lower()
-    if action == "w":
-        characters[char].working()
-        characters[char].stats()
-    elif action == "e":
-        characters[char].eat()
-        characters[char].stats()
-    elif action == "s":
-        characters[char].sleep()
-        characters[char].stats()
-    elif action == "p":
-        characters[char].procrastinate()
-        characters[char].stats()
-    elif action == "c":
-        characters[char].cry()
-        characters[char].stats()
+days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
-time.sleep(2)
-if WORK == 150:
-    print("""
-╔═══╗             ╔╗   ╔╗   ╔╗
-║╔═╗║            ╔╝╚╗  ║║  ╔╝╚╗
-║║ ╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
-║║ ╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
-║╚═╝║╚╝║║║║╚╝║║║╔╗║╚╣╚╝║╚╣╔╗║╚╣║╚╝║║║╠══║
-╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
-          ╔═╝║
-          ╚══╝
+for day in days:
+    print(f"It's {day} night. Let's get to work!")
 
-You finished all of your night's work, with your sanity still intact!
-    Well, mostly intact...
-    """)
+    NUM_CLICKS = 50
+    WORK = 0
+    ENERGY = characters[char].energy
+    HAPPINESS = characters[char].happiness
+
+    while WORK < 150:
+        if NUM_CLICKS <= 0:
+            print("Fiddlesticks! You ran out of clicks to do your work!\n\n...")
+            break
+        if ENERGY <= 0:
+            print("Aw, rats, your energy... I- I think you passed out from exhaustion, dude.\n\n")
+            break
+        if HAPPINESS <=0:
+            print("You let your happiness deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
+            break
+        action = input("What do you want to do?\n").lower()
+        if action == "w":
+            characters[char].working()
+            characters[char].stats()
+        elif action == "e":
+            characters[char].eat()
+            characters[char].stats()
+        elif action == "s":
+            characters[char].sleep()
+            characters[char].stats()
+        elif action == "p":
+            characters[char].procrastinate()
+            characters[char].stats()
+        elif action == "c":
+            characters[char].cry()
+            characters[char].stats()
+
+    time.sleep(2)
+    if WORK == 150:
+        print("""
+    ╔═══╗             ╔╗   ╔╗   ╔╗
+    ║╔═╗║            ╔╝╚╗  ║║  ╔╝╚╗
+    ║║ ╚╬══╦═╗╔══╦═╦═╩╗╔╬╗╔╣║╔═╩╗╔╬╦══╦═╗╔══╗
+    ║║ ╔╣╔╗║╔╗╣╔╗║╔╣╔╗║║║║║║║║╔╗║║╠╣╔╗║╔╗╣══╣
+    ║╚═╝║╚╝║║║║╚╝║║║╔╗║╚╣╚╝║╚╣╔╗║╚╣║╚╝║║║╠══║
+    ╚═══╩══╩╝╚╩═╗╠╝╚╝╚╩═╩══╩═╩╝╚╩═╩╩══╩╝╚╩══╝
+              ╔═╝║
+              ╚══╝
+
+    You finished all of your night's work, with your sanity still intact!
+        Well, mostly intact...
+        """)
+        WINS += 1
+
+print(f"You won {WINS} out of 1 games.")
 
 #THE GAME PLAN FROM HERE
 #at end of # of turns, if work points are at 100, player wins, if 100>p>80, player wins, but with penalty for next night, if less than 80, player loses
