@@ -141,7 +141,7 @@ while WORK < 150:
     if HAPPINESS <=0:
         print("You let your happiness deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
         break
-    action = input("What do you want to do?\n")
+    action = input("What do you want to do?\n").lower()
     if action == "w":
         characters[char].working()
         characters[char].stats()
@@ -158,6 +158,7 @@ while WORK < 150:
         characters[char].cry()
         characters[char].stats()
 
+time.sleep(2)
 if WORK == 150:
     print("""
 ╔═══╗             ╔╗   ╔╗   ╔╗
