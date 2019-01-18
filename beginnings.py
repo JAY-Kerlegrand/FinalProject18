@@ -1,4 +1,3 @@
-
 #Here's a small intro for the game, haha
 import time
 import random
@@ -9,13 +8,13 @@ intro = ["Magnet High School is a prestigious STEM school focused on the discipl
 "if ever dutiful at all...\n",
 "become stress-induced, procrastinating balls of sadness.\n",
 "Congrats! You are one of these pitiful students, and you are trying to skirt by yet another week of homework.\n",
-"Try to get your work done while also maintaining your energy and happiness!\n\n"]
-#for line in intro:
-    #print(line, end="")
-    #time.sleep(2)
-#print("-----------------")
+"Try to get your WORK done while also maintaining your ENERGY and HAPPINESS!\n\n"]
+for line in intro:
+    print(line, end="")
+    time.sleep(2)
+print("-----------------")
 
-#each character has different stats of base energy, work done per click, and base happiness; the base for all these traits, respectively, is 50, 5, 50
+#each character has different stats of base energy, work done per click, and base happiness
 class Magneteer:
 
     def __init__(self, name, energy, work, happiness):
@@ -29,7 +28,6 @@ class Magneteer:
         global ENERGY
         global HAPPINESS
         global NUM_CLICKS
-        #note: Unicode used to bold the numbers
         if WORK > 150:
             WORK = 150
         if ENERGY < 0:
@@ -38,21 +36,29 @@ class Magneteer:
             HAPPINESS = 0
         if NUM_CLICKS < 0:
             NUM_CLICKS = 0
+        #note: Unicode used to bold the numbers
         print(f"""
         You have:
-        \033[1m{WORK}\033[0m  work done out of 150
-        \033[1m{ENERGY}\033[0m energy left
-        \033[1m{HAPPINESS}\033[0m happiness
-        \033[1m{NUM_CLICKS}\033[0m clicks left""")
+        \033[1m{WORK}\033[0m WORK done out of 150
+        \033[1m{ENERGY}\033[0m ENERGY left
+        \033[1m{HAPPINESS}\033[0m HAPPINESS
+        \033[1m{NUM_CLICKS}\033[0m CLICKS left""")
+        if WORK < 150:
+            if ENERGY <= 10:
+                print("Woah, there buddy; you're low on ENERGY. Maybe you should sleep(s) or eat(e)?")
+            if HAPPINESS <= 10:
+                print("Uh oh, your HAPPINESS is running a bit low and it's getting ya down. Take a break and procrastinate(p) a little, huh?")
+            if NUM_CLICKS <= 10:
+                print("You're running out of CLICKS there, man! Prioritize getting that WORK done!!")
         print("\n")
-        #if work/happiness/num_clicks low, give a warning
+
 
     def working(self):
         global WORK
         global ENERGY
         global HAPPINESS
         global NUM_CLICKS
-        print("You do some work.\n")
+        print("You do some WORK.\n")
         WORK += self.work
         ENERGY -= 3
         HAPPINESS -= 2
@@ -70,7 +76,7 @@ class Magneteer:
     def sleep(self):
         global NUM_CLICKS
         global ENERGY
-        print("You catch a few winks. But at what cost? You lost some clicks to do your work!")
+        print("You catch a few winks. But at what cost? You lost some CLICKS to do your WORK!")
         ENERGY += 4
         NUM_CLICKS -= random.randint(3,5)
 
@@ -104,17 +110,17 @@ characters = {
     "genius": Magneteer("MIT Genius", 50, 8, 40),
     "studious": Magneteer("Studious Student", 40, 7, 70)}
 
-#print("What type of Magneteer are you? \n")
-#time.sleep(2)
+print("What type of Magneteer are you? \n")
+time.sleep(2)
 #I have used Unicode to bold certain words
-print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more work, but they work more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
-#time.sleep(2)
-print(f"★★ The \033[1m MIT Genius \033[0m can work quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
-#time.sleep(2)
-print(f"★★ The \033[1m Studious Student \033[0m has less energy, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
-#time.sleep(2)
+print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more WORK, but they WORK more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
+time.sleep(2)
+print(f"★★ The \033[1m MIT Genius \033[0m can WORK quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
+time.sleep(2)
+print(f"★★ The \033[1m Studious Student \033[0m has less ENERGY, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
+time.sleep(2)
 
-char = input("So, how do you work? (owl)(genius)(studious)\n")
+char = input("So, how do you WORK? (owl)(genius)(studious)\n")
 
 print(f"\nNice! So you're the {characters[char].name} type, huh?\n")
 time.sleep(2)
@@ -123,21 +129,20 @@ WINS = 0
 LOSSES = 0
 
 #These are quick directions
-directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got __ clicks to get it done, so use 'em wisely!"]
-#for line in directions:
-    #print(line)
-    #time.sleep(1)
-#print("\n")
+directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got 50 CLICKS to get it done, so use 'em wisely!"]
+for line in directions:
+    print(line)
+    time.sleep(1)
+print("\n")
 
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-
 for day in days:
     if day == 'Monday':
-        print("The weekend's just ended, darn... It's Monday night. Let's get to work!")
+        print("The weekend's just ended, darn... It's Monday night. Let's get to WORK!")
     elif day == 'Friday':
-        print("It's the last night for this week, Friday! Let's get to work and make it count!")
+        print("It's the last night for this week, Friday! Let's get to WORK and make it count!")
     else:
-        print(f"It's the next night, {day}. Let's get to work!")
+        print(f"It's the next night, {day}. Let's get to WORK!")
 
     NUM_CLICKS = 50
     WORK = 0
@@ -146,13 +151,13 @@ for day in days:
 
     while WORK < 150:
         if NUM_CLICKS <= 0:
-            print("Fiddlesticks! You ran out of clicks to do your work!\n")
+            print("Fiddlesticks! You ran out of CLICKS to do your WORK!\n")
             break
         if ENERGY <= 0:
-            print("Aw, rats, your energy... I- I think you passed out from exhaustion, dude.\n\n")
+            print("Aw, rats, your ENERGY... I- I think you passed out from exhaustion, dude.\n\n")
             break
         if HAPPINESS <=0:
-            print("You let your happiness deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
+            print("You let your HAPPINESS deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
             break
         action = input("What do you want to do?\n").lower()
         if action == "w":
@@ -173,7 +178,7 @@ for day in days:
 
     time.sleep(2)
     if WORK == 150:
-        print("Homework COMPLETED! You finished all of your night's work, with your sanity still intact! Well, mostly intact...\n")
+        print("Homework COMPLETED! You finished all of your night's WORK, with your sanity still intact! Well, mostly intact...\n")
         WINS += 1
     else:
         if day == 'Friday':
@@ -182,9 +187,17 @@ for day in days:
             print("Homework INCOMPLETE! There's still a worksheet to be done, but let's just hope tomorrow's co is enough time to get it done...\n")
     time.sleep(3)
 
-print(f"Well, {characters[char].name}, you've completed {WINS} day's work out of 5.", end=" ")
+print(".")
+time.sleep(2)
+print(".")
+time.sleep(2)
+print(".")
+time.sleep(2)
+print("\n")
+
+print(f"Well, {characters[char].name}, you've completed {WINS} day's work out of 5.")
 if WINS == 0:
-    print("LMAO buddy, you ok? You got a whole-ass 0 on, like, EVERY assignment. Like, were you just playing Deltarune the entire week or something? How yo dumbass even got into Magnet??")
+    print("LMAO buddy, you ok? You got a whole-ass 0 on, like, EVERY assignment. Like, were you just playing Deltarune the entire week or something? How did you even get into Magnet??")
 elif WINS == 1:
     print("You got a..54? Just didn't care, huh? Can't blame ya, I guess, who needs to know what an 'epithet' is, amirite? ...No, actually, I'm really disappointed in you; please try harder next time, sweety.")
 elif WINS == 2:
@@ -195,19 +208,6 @@ elif WINS == 4:
     print("Ok, ok, you got a 92. Not too shabby for bum-rushing that chem packet at one in the morning. Good job! (I mean the grade, not the procrastination)")
 elif WINS == 5:
     print("Ayyyyyyyyyyyyyyyy, 98 FOR. THE. WIN!!! Haha, dab on 'em...*ahem* Congratulations on your grade, keep up the good work.")
-
-
-#at end of # of turns, if work points are at 100, player wins, if 100>p>80, player wins, but with penalty for next night, if less than 80, player loses
-#do the same for happiness and energy (however, whether or not the player wins the night is not determined by these, they can only add a penalty for the next night)
-
-
-
-
-
-
-
-
-
 
 
 
