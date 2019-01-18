@@ -124,7 +124,7 @@ class Magneteer:
 
 #A dictionary to contain the three characters and make it easy to select them
 characters = {
-    "owl": Magneteer("Night Owl", 70, 6, 50),
+    "owl": Magneteer("Night Owl", 70, 5, 50),
     "genius": Magneteer("MIT Genius", 50, 8, 30),
     "studious": Magneteer("Studious Student", 30, 7, 70)}
 
