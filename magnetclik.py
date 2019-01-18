@@ -126,7 +126,7 @@ class Magneteer:
 characters = {
     "owl": Magneteer("Night Owl", 70, 6, 50),
     "genius": Magneteer("MIT Genius", 50, 8, 40),
-    "studious": Magneteer("Studious Student", 40, 7, 70)}
+    "studious": Magneteer("Studious Student", 30, 7, 70)}
 
 #A short description of each character type
 print("What type of Magneteer are you? \n")
