@@ -56,11 +56,11 @@ class Magneteer:
         \033[1m{HAPPINESS}\033[0m HAPPINESS
         \033[1m{NUM_CLICKS}\033[0m CLICKS left""")
         if WORK < 150:
-            if ENERGY <= 10:
+            if ENERGY <= 5:
                 print("Woah, there buddy; you're low on ENERGY. Maybe you should sleep(s) or eat(e)?")
-            if HAPPINESS <= 10:
+            if HAPPINESS <= 5:
                 print("Uh oh, your HAPPINESS is running a bit low and it's getting ya down. Take a break and procrastinate(p) a little, huh?")
-            if NUM_CLICKS <= 10:
+            if NUM_CLICKS <= 5:
                 print("You're running out of CLICKS there, man! Prioritize getting that WORK done!!")
         print("\n")
 
