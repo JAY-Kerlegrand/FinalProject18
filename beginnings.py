@@ -1,6 +1,18 @@
 #Here's a small intro for the game, haha
 import time
 import random
+print("""
+WELCOME TO
+ __   __  _______  _______  __    _  _______  _______  _______  ___      ___   ___   _    __
+|  |_|  ||   _   ||       ||  |  | ||       ||       ||       ||   |    |   | |   | | |  |  |
+|       ||  |_|  ||    ___||   |_| ||    ___||_     _||       ||   |    |   | |   |_| |  |  |
+|       ||       ||   | __ |       ||   |___   |   |  |       ||   |    |   | |      _|  |  |
+|       ||       ||   ||  ||  _    ||    ___|  |   |  |      _||   |___ |   | |     |_   |__|
+| ||_|| ||   _   ||   |_| || | |   ||   |___   |   |  |     |_ |       ||   | |    _  |   __
+|_|   |_||__| |__||_______||_|  |__||_______|  |___|  |_______||_______||___| |___| |_|  |__|
+
+""")
+time.sleep(2)
 intro = ["Magnet High School is a prestigious STEM school focused on the discipline of engineering.\n",
 "Hundreds of students compete vigorously in the selective admission process to be enrolled in the school and further their education in hopes of becoming productive members of society in their near futures.\n",
 "Except...\n",
@@ -120,7 +132,9 @@ time.sleep(2)
 print(f"★★ The \033[1m Studious Student \033[0m has less ENERGY, but doesn't need to procrastinate as much. They start off with {characters['studious'].energy} ENERGY and {characters['studious'].happiness} HAPPINESS, and get {characters['studious'].work} WORK done per click.\n")
 time.sleep(2)
 
-char = input("So, how do you WORK? (owl)(genius)(studious)\n")
+char = input("So, how do you WORK? (owl)(genius)(studious)\n").lower()
+while char not in characters:
+    char = input("So, how do you WORK? (owl)(genius)(studious)\n").lower()
 
 print(f"\nNice! So you're the {characters[char].name} type, huh?\n")
 time.sleep(2)
