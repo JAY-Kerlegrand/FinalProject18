@@ -151,7 +151,7 @@ time.sleep(2)
 WINS = 0
 
 #Quick directionson how to play the game
-directions = ["Directions:", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got 50 CLICKS to get it done, so use 'em wisely!"]
+directions = ["Directions:", "Press (w) to work", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got 50 CLICKS to get it done, so use 'em wisely!"]
 for line in directions:
     print(line)
     time.sleep(1)
