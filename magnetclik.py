@@ -151,11 +151,15 @@ time.sleep(2)
 WINS = 0
 
 #Quick directionson how to play the game
-directions = ["Directions:", "Press (w) to work", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got 50 CLICKS to get it done, so use 'em wisely!"]
+directions = ["Directions:", "Press (w) to work", "Press (e) to eat", "Press (s) to sleep", "Press (p) to procrastinate", "Press (c) to... cry", "Be careful, sleeping and crying may have some consequences...", "Stragetize! You've only got 50 CLICKS to get it done, so use 'em wisely!", "Try not to lose! Depleting your ENERGY or HAPPINESS completely will cause you to start the next night with lower ENERGY/HAPPINESS!", "Let's begin the week!"]
 for line in directions:
     print(line)
     time.sleep(1)
 print("\n")
+
+#this is the base of the hidden repurcussion stat(explained below)
+repurcussion_E = 0
+repurcussion_H = 0
 
 #For each day of the week, a "night" is played (a loop of 5 turns); there is a different "start game" line depending on the day
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -166,12 +170,26 @@ for day in days:
         print("It's the last night for this week, Friday! Let's get to WORK and make it count!")
     else:
         print(f"It's the next night, {day}. Let's get to WORK!")
+    time.sleep(2)
 
     #Stats reset for every night
     NUM_CLICKS = 50
     WORK = 0
     ENERGY = characters[char].energy
     HAPPINESS = characters[char].happiness
+
+    #repurcussion is a stat that determines a penalty on energy/happiness for the night if the previous night was failed
+    if repurcussion_E == 1:
+        ENERGY -= 10
+        print("You lost all your ENERGY last night, and you're still a bit tired. You start this night with 10 less ENERGY!")
+        time.sleep(2)
+    if repurcussion_H == 1:
+        HAPPINESS -= 10
+        print("You lost all your HAPPINESS last night, and you're still a bit down. You start this night with 10 less HAPPINESS!")
+        time.sleep(2)
+    #repurcussion resets as well
+    repurcussion_E = 0
+    repurcussion_H = 0
 
     #Within "weekday loop" there is a loop of at most 50 turns(the max number of "clicks") that asks the player what action to perform until work is completed or a stat is depleted
     while WORK < 150:
@@ -180,9 +198,11 @@ for day in days:
             break
         if ENERGY <= 0:
             print("Aw, rats, your ENERGY... I- I think you passed out from exhaustion, dude.\n\n")
+            repurcussion_E = 1
             break
         if HAPPINESS <=0:
             print("You let your HAPPINESS deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
+            repurcussion_H = 1
             break
         action = input("What do you want to do?\n").lower()
         if action == "w":
@@ -214,11 +234,11 @@ for day in days:
     time.sleep(3)
 
 print(".")
-time.sleep(2)
+time.sleep(1)
 print(".")
-time.sleep(2)
+time.sleep(1)
 print(".")
-time.sleep(2)
+time.sleep(1)
 print("\n")
 
 #Total win nights are counted up, and depending on how many wins the player gets, they receive a different "grade"; you cannot earn a 100, because life's not fair sometimes, bro
