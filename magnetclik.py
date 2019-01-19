@@ -54,7 +54,7 @@ class Magneteer:
         You have:
         \033[1m{WORK}\033[0m WORK done out of 150
         \033[1m{ENERGY}\033[0m ENERGY left
-        \033[1m{HAPPINESS}\033[0m HAPPINESS
+        \033[1m{HAPPINESS}\033[0m HAPPINESS left
         \033[1m{NUM_CLICKS}\033[0m CLICKS left""")
         #A warning is issued if any of your stats are too low
         if WORK < 150:
@@ -62,7 +62,7 @@ class Magneteer:
                 print("Woah, there buddy; you're low on ENERGY. Maybe you should sleep(s) or eat(e)?")
             if HAPPINESS <= 5:
                 print("Uh oh, your HAPPINESS is running a bit low and it's getting ya down. Take a break and procrastinate(p) a little, huh?")
-            if NUM_CLICKS <= 5:
+            if NUM_CLICKS <= 10:
                 print("You're running out of CLICKS there, man! Prioritize getting that WORK done!!")
         print("\n")
 
@@ -72,7 +72,8 @@ class Magneteer:
         global ENERGY
         global HAPPINESS
         global NUM_CLICKS
-        print("You do some WORK.\n")
+        hw = ["UGH, inverse derivatives.", "It's just some simple stochiometry.", "AutoCAD can be relaxing. OnShape on the other hand...", "Seems like you're the only one working on this group project :/.", "Trabajas en la presentación del pan de Cuba.", "You work on the coding midterm proj- wait, wait a minute here...", "Since when does gym give written homework!!??", "The usual ten pages of history, except for some reason, it's actually fifteen...Drats.", "It's physics...yay...", "You write a poem for literature about memes. Didn't she say it had to be serious? Oh well."]
+        print(f"You do some WORK. {random.choice(hw)}")
         WORK += self.work
         ENERGY -= 3
         HAPPINESS -= 2
@@ -82,9 +83,8 @@ class Magneteer:
         """A function to eat and restore energy"""
         global ENERGY
         global NUM_CLICKS
-        eating = ["Mother made some porridge, how nice.", "Crackers and cheese replenish your soul.", "Let's take a break for some grapes.", "You eat a cinnamon bun. It's sweet, just like you <3.", "Mmmm, sesame candy...", "You...drink some water? That's it? Ok..."]
-        print("You eat something.", end=" ")
-        print(random.choice(eating))
+        eating = ["Mother made some porridge, how nice.", "Crackers and cheese replenish your soul.", "Let's take a break for some grapes.", "You eat a cinnamon bun. It's sweet, just like you <3.", "Mmmm, sesame candy...", "You...drink some water? That's it? Ok...", "GUAVA CANDIES!!", "Hot cheetos, hot cheetos, what would we do without you?", "A damn napkin, because you just don't care anymore.", "You have Lunchables because you're just totally rad like that B).", "Apple slices and caramel, classy.", "You inhale half a pack of Oreos...That can't be healthy..."]
+        print(f"You eat something. {random.choice(eating)}")
         ENERGY += 3
         NUM_CLICKS -= 1
 
@@ -92,7 +92,8 @@ class Magneteer:
         """A function to sleep and restore a large amount of energy, but lose a random amount of clicks from 3-5"""
         global NUM_CLICKS
         global ENERGY
-        print("You catch a few winks. But at what cost? You lost some CLICKS to do your WORK!")
+        dreams = ["acing that physics lab report", "absolutely bombing that chem-co quiz", "hanging out in the senior lounge with your best buds, but you aren't seniors, so it's clandestine :O", "the lunch room actually being big enough to accomodate everyone who goes there to eat", "being Mr.Sanservino's favorite student", "Mr. Nowakoski coming back and abolishing vocab quizzes like the god he is", "some freshman crushing on you. Pffft, like they have a chance", "INTERIOR CROCODILE ALLLIGATOR, I DRIVE A CHEVROLET MOVIE THEATRE", "KITTIES"]
+        print(f"You catch a few winks and dream about {random.choice(dreams)}. But at what cost? You lost some CLICKS to do your WORK!")
         ENERGY += 5
         NUM_CLICKS -= random.randint(3,5)
 
@@ -101,9 +102,8 @@ class Magneteer:
         global ENERGY
         global HAPPINESS
         global NUM_CLICKS
-        pro = ["You take a break to browse Twitter. You laugh at another stupid Trump tweet.", "You doodle on the edge of your pa- wait, no, you just finished a fully colored illustration...", "WAIT, IS THERE A NEW EPISODE OF *insert fave show*!!??-", "You literally just sit there and stare at your paper, trying to empty your mind of stress. It kinda works, but not really.", "You really just wanna play Smash Ultimate, so you do. Isabelle's sweet smile makes it all worth it."]
-        print("You procrastinate.", end=" ")
-        print(random.choice(pro))
+        pro = ["You take a break to browse Twitter. You laugh at another stupid Trump tweet.", "You doodle on the edge of your pa- wait, no, you just finished a fully colored illustration...", "WAIT, IS THERE A NEW EPISODE OF *insert fave show*!!??-", "You literally just sit there and stare at your paper, trying to empty your mind of stress. It kinda works, but not really.", "You really just wanna play Smash Ultimate, so you do. Isabelle's sweet smile makes it all worth it.", "You have a lovely conversation about pigeons with the disembodied gentlemanly voice that lives in your head. He somehow changes the subject to that of long-awaited revenge, but you decide that's enough chit-chat for today.", "You play tickles with your pet.", "Acting on random impulse, you vacuum your entire room and rearrange your Devilman figurine collection."]
+        print(f"You procrastinate. {random.choice(pro)}")
         ENERGY -= 2
         HAPPINESS += 3
         NUM_CLICKS -= 1
@@ -115,10 +115,10 @@ class Magneteer:
         p = [1, 2]
         pp = random.choice(p)
         if pp == 1:
-            print("You get a bit overwhelmed and some tears come a-flowing. But that's understandable, it can get stressful sometimes. You feel a bit better afterward.\n")
+            print("You get a bit overwhelmed and some tears come a-flowing. But that's understandable, it can get stressful sometimes. You feel a bit better afterward.")
             HAPPINESS += 3
         else:
-            print("A simple problem and a brain fart manage to hurl you into a fury of tears. You feel worse now. Oh no.\n")
+            print("A simple problem and a brain fart manage to hurl you into a fury of tears. You feel worse now. Oh no.")
             HAPPINESS -= 3
         NUM_CLICKS -= 1
 
