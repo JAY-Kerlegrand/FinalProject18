@@ -85,7 +85,7 @@ class Magneteer:
         eating = ["Mother made some porridge, how nice.", "Crackers and cheese replenish your soul.", "Let's take a break for some grapes.", "You eat a cinnamon bun. It's sweet, just like you <3.", "Mmmm, sesame candy...", "You...drink some water? That's it? Ok..."]
         print("You eat something.", end=" ")
         print(random.choice(eating))
-        ENERGY += 2
+        ENERGY += 3
         NUM_CLICKS -= 1
 
     def sleep(self):
@@ -93,7 +93,7 @@ class Magneteer:
         global NUM_CLICKS
         global ENERGY
         print("You catch a few winks. But at what cost? You lost some CLICKS to do your WORK!")
-        ENERGY += 4
+        ENERGY += 5
         NUM_CLICKS -= random.randint(3,5)
 
     def procrastinate(self):
@@ -105,7 +105,7 @@ class Magneteer:
         print("You procrastinate.", end=" ")
         print(random.choice(pro))
         ENERGY -= 2
-        HAPPINESS += 1
+        HAPPINESS += 3
         NUM_CLICKS -= 1
 
     def cry(self):
