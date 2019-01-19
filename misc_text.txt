@@ -16,39 +16,9 @@ Be careful, sleeping and crying may have some consequences...
 Stragetize! You've only got __ clicks to get it done, so use 'em wisely!
 
 
-Monday starting line:
-It's Monday evening and you've just come home from a sluggish day at school. Damn, the weekend is over, RATS. Time to get to work!
-
-Tuesday starting line:
-It's Tuesday evening and you've just come home from a grumpy day at school. What a huge oof. Time to get to work!
-
-Wednesday starting line:
-It's Wednesday evening and you've just come home from a harsh day at school. When will it be o v e r? Time to get to work!
-
-Thursday starting line:
-It's Thursday evening and you've just come home from a jittery day at school. UGH. Time to get to work!
-
-Friday starting line:
-It's Friday evening and you've just come home from a slightly better day at school. Can't wait for the weekend! Time to get to work!
-
-
-WIN line: Homework COMPLETE! Now for a few measly hours of sleep...
-LOSE lines:
-    work not done: Homework UNCOMPLETE! I guess you'll have to settle with a 67...
-    energy depleted: I- I think you passed out from exhaustion, dude. Enjoy the surprise nap...?
-    happiness depleted: You broke down in tears from the mounting stress on your shoulders...I think you need a break...
-
-
-
-.
-
-
-
-
-
-
 WORKS CITED
 https://www.geeksforgeeks.org/sleep-in-python/
 https://stackoverflow.com/questions/8924173/how-do-i-print-bold-text-in-python
 https://www.hostingadvice.com/how-to/move-copy-delete-files-linux/
 https://www.atlassian.com/git/tutorials/syncing/git-pull
+
