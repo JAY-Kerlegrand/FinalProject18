@@ -1,9 +1,8 @@
-# Intro to Programming Final Project - Fall 2018
+MagnetClik
 
-* Project details are in description.md
-* Replace the content of this file with your own info about your project before the due date
-* Don't forget to fill out the [Project Proposal Form](https://airtable.com/shrrdA41unoBvi6Ki) before break.
-
-## Setting Up Your Repo
-
-On the GitHub page for this repository, click the "Fork" button. This will create your own copy of this repository, linked to my original. Use the same cloning method we used before to clone the repository to your PythonAnywhere account
+Magnet High school is a prestigious establishment of higher learning.
+And after the grueling hours of work in class, there's...more grueling hours of work at home...great.
+MagnetClik is a "clicker" game meant to emulate to balancing act of doing homework and taking care of yourself.
+Every night, you have four stats to manage: WORK, ENERGY, and HAPPINESS.
+Each night you must finish your work while also keeping up your ENERGY and HAPPINESS, with a of moves(clicks) of 50.
+Press (w) to work, increasing WORK and decreasing ENERGY and HAPPINESS.
