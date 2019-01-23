@@ -1,3 +1,4 @@
+#Note: occasionally, Unicode is used to bold certain words/phrases
 #Here's a small intro for the game, haha
 import time
 import random
@@ -42,7 +43,6 @@ class Magneteer:
             HAPPINESS = 0
         if NUM_CLICKS < 0:
             NUM_CLICKS = 0
-        #note: Unicode used to bold the numbers
         print(f"""
         You have:
         \033[1m{WORK}\033[0m WORK done out of 150
@@ -86,7 +86,7 @@ class Magneteer:
         global NUM_CLICKS
         global ENERGY
         dreams = ["acing that physics lab report", "absolutely bombing that chem-co quiz", "hanging out in the senior lounge with your best buds, but you aren't seniors, so it's clandestine :O", "the lunch room actually being big enough to accomodate everyone who goes there to eat", "being Mr.Sanservino's favorite student", "Mr. Nowakoski coming back and abolishing vocab quizzes like the god he is", "some freshman crushing on you. Pffft, like they have a chance", "INTERIOR CROCODILE ALLLIGATOR, I DRIVE A CHEVROLET MOVIE THEATRE", "KITTIES"]
-        print(f"You catch a few winks and dream about \033[1m{random.choice(dreams)}\033[0m. But at what cost? You lost some CLICKS to do your WORK!")
+        print(f"\033[1mYou catch a few winks and dream about {random.choice(dreams)}\033[0m. But at what cost? You lost some CLICKS to do your WORK!")
         ENERGY += 5
         NUM_CLICKS -= random.randint(3,5)
 
@@ -124,7 +124,6 @@ characters = {
 #A short description of each character type
 print("What type of Magneteer are you? \n")
 time.sleep(2)
-#I have used Unicode to bold certain words
 print(f"★★ The \033[1m Night Owl \033[0m can stay up to do more WORK, but they WORK more slowly. They start off with {characters['owl'].energy} ENERGY and {characters['owl'].happiness} HAPPINESS, and get {characters['owl'].work} WORK done per click.\n")
 time.sleep(2)
 print(f"★★ The \033[1m MIT Genius \033[0m can WORK quickly, but they tend to procratinate more. They start off with {characters['genius'].energy} ENERGY and {characters['genius'].happiness} HAPPINESS, and get {characters['genius'].work} WORK done per click.\n")
@@ -190,11 +189,11 @@ for day in days:
             print("Fiddlesticks! You ran out of CLICKS to do your WORK!\n")
             break
         if ENERGY <= 0:
-            print("Aw, rats, your ENERGY... I- I think you passed out from exhaustion, dude.\n\n")
+            print("Aw, rats, your ENERGY... I- I think you passed out from exhaustion, dude.\n")
             repurcussion_E = 1
             break
         if HAPPINESS <=0:
-            print("You let your HAPPINESS deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...")
+            print("You let your HAPPINESS deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...\n")
             repurcussion_H = 1
             break
         action = input("What do you want to do?\n").lower()
@@ -247,7 +246,7 @@ elif WINS == 3:
 elif WINS == 4:
     print("Ok, ok, you got a 92. Not too shabby for bum-rushing that chem packet at one in the morning. Good job! (I mean the grade, not the procrastination)")
 elif WINS == 5:
-    print("Ayyyyyyyyyyyyyyyy, 98 FOR. THE. WIN!!! Haha, yEET, dab on 'em......*ahem* Congratulations on your grade, keep up the good work.")
+    print("Ayyyyyyyyyyyyyyyy, 98 FOR. THE. WIN!!! Haha, yEET, dab on 'em......*ahem* Congratulations on your grade, and keep up the good work.")
 
 
 
