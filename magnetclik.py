@@ -149,9 +149,9 @@ for line in directions:
     time.sleep(1)
 print("\n")
 
-#This is the base of the hidden repurcussion stat(explained below)
-repurcussion_E = 0
-repurcussion_H = 0
+#This is the base of the hidden repercussion stat(explained below)
+repercussion_E = 0
+repercussion_H = 0
 
 #For each day of the week, a "night" is played (a loop of 5 turns); there is a different "start game" line depending on the day
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -170,18 +170,18 @@ for day in days:
     ENERGY = characters[char].energy
     HAPPINESS = characters[char].happiness
 
-    #repurcussion is a stat that determines a penalty on energy/happiness for the night if the previous night was failed
-    if repurcussion_E == 1:
+    #repercussion is a stat that determines a penalty on energy/happiness for the night if the previous night was failed
+    if repercussion_E == 1:
         ENERGY -= 10
         print("You lost all your ENERGY last night, and you're still a bit tired. You start this night with 10 less ENERGY!")
         time.sleep(2)
-    if repurcussion_H == 1:
+    if repercussion_H == 1:
         HAPPINESS -= 10
         print("You lost all your HAPPINESS last night, and you're still a bit down. You start this night with 10 less HAPPINESS!")
         time.sleep(2)
-    #repurcussion resets as well
-    repurcussion_E = 0
-    repurcussion_H = 0
+    #repercussion resets as well
+    repercussion_E = 0
+    repercussion_H = 0
 
     #Within "weekday loop" there is a loop of at most 50 turns(the max number of "clicks") that asks the player what action to perform until work is completed or a stat is depleted
     while WORK < 150:
@@ -190,11 +190,11 @@ for day in days:
             break
         if ENERGY <= 0:
             print("Aw, rats, your ENERGY... I- I think you passed out from exhaustion, dude.\n")
-            repurcussion_E = 1
+            repercussion_E = 1
             break
         if HAPPINESS <=0:
             print("You let your HAPPINESS deplete, and you broke down in tears from the mounting stress on your shoulders...I think you need a break...\n")
-            repurcussion_H = 1
+            repercussion_H = 1
             break
         action = input("What do you want to do?\n").lower()
         if action == "w":
